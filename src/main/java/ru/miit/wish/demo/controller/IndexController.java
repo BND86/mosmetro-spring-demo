@@ -1,6 +1,7 @@
 package ru.miit.wish.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ru.miit.wish.demo.client.MosmetroClient;
@@ -16,7 +17,7 @@ public class IndexController {
     }
 
     @GetMapping("/")
-    public MosMetroResponse index() {
-        return mosmetroClient.getWagonsForStation(173);
+    public MosMetroResponse index(@RequestParam int stationId) {
+        return mosmetroClient.getWagonsForStation(stationId);
     }
 }
